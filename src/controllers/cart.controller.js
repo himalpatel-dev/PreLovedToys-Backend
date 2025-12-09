@@ -10,6 +10,9 @@ const addToCart = async (req, res) => {
         await cartService.addToCart(userId, productId, quantity || 1);
         res.status(200).json({ message: "Item added to cart" });
     } catch (error) {
+        if (error.message === "Product is already in the cart.") {
+            return res.status(400).json({ message: error.message });
+        }
         res.status(500).json({ message: error.message });
     }
 };

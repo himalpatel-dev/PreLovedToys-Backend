@@ -12,9 +12,8 @@ const addToCart = async (userId, productId, quantity) => {
         });
 
         if (existingItem) {
-            // If exists, update quantity
-            existingItem.quantity += quantity;
-            return await existingItem.save();
+            // Should not add again if already exists
+            throw new Error("Product is already in the cart.");
         } else {
             // If new, create it
             return await CartItem.create({
