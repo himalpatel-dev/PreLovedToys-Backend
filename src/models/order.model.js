@@ -20,7 +20,7 @@ const Order = sequelize.define('Order', {
         defaultValue: 'pending'
     },
     shippingAddress: {
-        type: DataTypes.TEXT, // We will store the full address string here for now
+        type: DataTypes.INTEGER, // We will store the full address string here for now
         allowNull: false
     },
     isPoints: {

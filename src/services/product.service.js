@@ -84,7 +84,7 @@ const getAllProducts = async (filters = {}) => {
                 { model: User, as: 'seller', attributes: ['name'] },
                 // ... (keep your other includes: AgeGroup, Color, etc.) ...
             ],
-            order: [['createdAt', 'DESC']]
+            //order: [['createdAt', 'DESC']]
         });
         return products;
     } catch (error) {
