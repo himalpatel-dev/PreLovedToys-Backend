@@ -69,7 +69,8 @@ const getAllSubCategories = async () => {
     return await SubCategory.findAll({ include: ['category'] });
 };
 
-const getSubCategoriesByCategoryId = async (categoryId) => {
+const getAllSubCategoriesByCategoryId = async (categoryId) => {
+
     const whereClause = {};
     if (categoryId) {
         whereClause.categoryId = categoryId;
@@ -96,6 +97,7 @@ const deleteSubCategory = async (id) => {
     await subCategory.destroy();
     return subCategory;
 };
+
 
 // ==========================================
 // 3. AGE GROUP SERVICES
@@ -224,7 +226,7 @@ module.exports = {
     // SubCategory
     createSubCategory,
     getAllSubCategories,
-    getSubCategoriesByCategoryId,
+    getAllSubCategoriesByCategoryId,
     getSubCategoryById,
     updateSubCategory,
     deleteSubCategory,

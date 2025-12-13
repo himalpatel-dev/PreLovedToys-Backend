@@ -18,6 +18,7 @@ router.delete('/categories/:id', masterController.deleteCategory);
 router.post('/subcategories', masterController.createSubCategory);
 router.get('/subcategories', masterController.getAllSubCategories);
 router.get('/subcategories/:id', masterController.getSubCategoryById);
+router.get('/subcategoriesByCategory/:categoryId', masterController.getAllSubCategoriesByCategoryId);
 router.put('/subcategories/:id', masterController.updateSubCategory);
 router.delete('/subcategories/:id', masterController.deleteSubCategory);
 

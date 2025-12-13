@@ -123,6 +123,15 @@ const deleteSubCategory = async (req, res) => {
     }
 };
 
+const getAllSubCategoriesByCategoryId = async (req, res) => {
+    try {
+        const data = await masterService.getAllSubCategoriesByCategoryId(req.params.categoryId);
+        res.status(200).json(data);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 // ==========================================
 // 3. AGE GROUP CRUD
 // ==========================================
@@ -335,7 +344,7 @@ module.exports = {
     // Category
     createCategory, getAllCategories, getAllCategoriesWithSubCategories, getCategoryById, updateCategory, deleteCategory,
     // SubCategory
-    createSubCategory, getAllSubCategories, getSubCategoryById, updateSubCategory, deleteSubCategory,
+    createSubCategory, getAllSubCategories, getAllSubCategoriesByCategoryId, getSubCategoryById, updateSubCategory, deleteSubCategory,
     // AgeGroup
     createAgeGroup, getAllAgeGroups, getAgeGroupById, updateAgeGroup, deleteAgeGroup,
     // Color
