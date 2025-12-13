@@ -4,7 +4,6 @@ const db = require('./src/models');
 // Category data
 // ---------------------------
 const categories = [
-    { name: "Dolls & Accessories", image: "https://placehold.co/200x200/E91E63/white?text=Dolls" },
     { name: "Vehicles", image: "https://placehold.co/200x200/3357FF/white?text=Vehicles" },
     { name: "Soft Toys", image: "https://placehold.co/200x200/F39C12/white?text=Soft+Toys" },
     { name: "Gun", image: "https://placehold.co/200x200/C0392B/white?text=Gun" },
@@ -12,9 +11,9 @@ const categories = [
     { name: "Block Games", image: "https://placehold.co/200x200/2ECC71/white?text=Block+Games" },
     { name: "Art & Craft", image: "https://placehold.co/200x200/F39C12/white?text=Art+%26+Craft" },
     { name: "Board Games", image: "https://placehold.co/200x200/3357FF/white?text=Board+Games" },
-    { name: "Educational Toys & Games", image: "https://placehold.co/200x200/28B463/white?text=Educational+Toys" },
+    { name: "Educational Toys", image: "https://placehold.co/200x200/28B463/white?text=Educational+Toys" },
     { name: "Sports", image: "https://placehold.co/200x200/FF8F00/white?text=Sports" },
-    { name: "Activity Games & Toys", image: "https://placehold.co/200x200/1ABC9C/white?text=Activity+Games" },
+    { name: "Activity Games", image: "https://placehold.co/200x200/1ABC9C/white?text=Activity+Games" },
     { name: "Musical Toys", image: "https://placehold.co/200x200/D35400/white?text=Musical+Toys" },
     { name: "Others", image: "https://placehold.co/200x200/7F8C8D/white?text=Others" },
     { name: "Push & Pull Toys", image: "https://placehold.co/200x200/E91E63/white?text=Push+%26+Pull+Toys" },
@@ -26,17 +25,16 @@ const categories = [
 // Subcategory data
 // ---------------------------
 const subCategoryData = [
-    { categoryName: "Dolls & Accessories", subs: ["Fashion Dolls", "Dollhouses", "Baby Dolls", "Doll Clothes", "Playsets"] },
     { categoryName: "Vehicles", subs: ["Remote Control Cars", "Die-Cast Models", "Trains & Tracks", "Drones", "Trucks"] },
-    { categoryName: "Soft Toys", subs: ["Teddy Bears", "Animals", "Cartoon Characters", "Interactive Plush"] },
+    { categoryName: "Soft Toys", subs: ["Teddy Bears", "Animals", "Cartoon Characters", "Interactive Plush", "Dolls"] },
     { categoryName: "Gun", subs: ["Bullet", "Air Pressure", "Musical"] },
     { categoryName: "Puzzles", subs: ["Fruit & Vegetable", "Transport", "Animal & Bird", "Educational", "Magnetic", "Story", "Fun Puzzle Games"] },
     { categoryName: "Block Games", subs: ["Activity Blocks", "Building Blocks", "Magnetic Blocks", "Stick Blocks", "Bullet Blocks"] },
     { categoryName: "Art & Craft", subs: ["Jewellery Making Games", "Clay Toys", "Scratching/ Colouring Games", "Quilling Games", "Others"] },
     { categoryName: "Board Games", subs: ["Educational Board", "Chess", "Ludo & Snakes", "Wooden Board Games", "Carrom", "Business", "Monopoly", "Sequence", "Word Games", "D-Dart", "Housie", "Chinese Checker", "Tic Tac Toe", "Adventure Games", "Combos"] },
-    { categoryName: "Educational Toys & Games", subs: ["Mechanical Games", "Magnetic Shapes & Colours", "Globes", "Brainvita", "Flash Cards", "Abacus", "Educational Shapes", "Preschool Toys", "Memory Games", "Educational Numbers & Alphabets", "3D Books", "Science Games"] },
+    { categoryName: "Educational Toys", subs: ["Mechanical Games", "Magnetic Shapes & Colours", "Globes", "Brainvita", "Flash Cards", "Abacus", "Educational Shapes", "Preschool Toys", "Memory Games", "Educational Numbers & Alphabets", "3D Books", "Science Games"] },
     { categoryName: "Sports", subs: ["Basket Ball", "Cricket Sets", "Bowling Games", "Bow & Arrow", "Golf Set", "Table Tennis", "Hockey", "Challenge Sports"] },
-    { categoryName: "Activity Games & Toys", subs: ["Flying Disk", "Bladders", "Play Tent House", "Ringtoss", "Hoopla Ring", "Play Gym", "Spiral Fun", "Hopscotch", "Ball Pool", "Spinner", "Rolling Fun", "Teddy Ring", "Magic Game", "Cycle", "Other Activity Game", "Target & Aim Games", "Rings Toys"] },
+    { categoryName: "Activity Games", subs: ["Flying Disk", "Bladders", "Play Tent House", "Ringtoss", "Hoopla Ring", "Play Gym", "Spiral Fun", "Hopscotch", "Ball Pool", "Spinner", "Rolling Fun", "Teddy Ring", "Magic Game", "Cycle", "Other Activity Game", "Target & Aim Games", "Rings Toys"] },
     { categoryName: "Musical Toys", subs: ["Rattles", "Roly Poly", "Musical Drum", "Xylophone", "Jhoomer", "Musical Animals", "Musical Vehicles", "Musical Instrument Toys", "Musical Teddy"] },
     { categoryName: "Others", subs: ["Kitchen Set", "Dolls", "Piggy Bank", "Cup Stackers", "Cube", "Almirah", "Carry Cot", "Doctor Set", "Pen Stand", "Beauty Set", "Sofa", "Activity Toys", "Warrior Fighter Set", "Teether", "Baby Suitcase"] },
     { categoryName: "Push & Pull Toys", subs: ["Cars", "Trucks & Dumpers", "Bike", "Boats & Ships", "Plane", "Pull Along Toys", "Push & Go Toys", "Animals", "Trains", "Cranes", "Bus", "Friction Toys", "Fire Brigade", "Auto Rikshaw", "Jeep", "Ambulance", "Helicopter", "Tractor"] },
