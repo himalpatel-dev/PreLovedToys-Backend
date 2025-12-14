@@ -5,6 +5,7 @@ const AgeGroup = db.AgeGroup;
 const Color = db.Color;
 const Gender = db.Gender;
 const Material = db.Material;
+const LoadDataFrom = db.LoadDataFrom;
 
 // ==========================================
 // 1. CATEGORY SERVICES
@@ -215,6 +216,14 @@ const deleteMaterial = async (id) => {
     return deleted > 0;
 };
 
+// ========================================== 
+// 7. LOAD DATA FROM SERVICES
+// ========================================== 
+
+const getAllLoadDataFrom = async () => {
+    return await LoadDataFrom.findAll();
+};
+
 module.exports = {
     // Category
     createCategory,
@@ -253,5 +262,7 @@ module.exports = {
     getAllMaterials,
     getMaterialById,
     updateMaterial,
-    deleteMaterial
+    deleteMaterial,
+    // LoadDataFrom
+    getAllLoadDataFrom
 };

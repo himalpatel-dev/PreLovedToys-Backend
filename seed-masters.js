@@ -1,49 +1,203 @@
 const db = require('./src/models');
 
 // ---------------------------
-// Category data
+// Single Source of Truth for Categories and Subcategories
 // ---------------------------
-const categories = [
-    { name: "Vehicles", image: "https://placehold.co/200x200/3357FF/white?text=Vehicles" },
-    { name: "Soft Toys", image: "https://placehold.co/200x200/F39C12/white?text=Soft+Toys" },
-    { name: "Gun", image: "https://placehold.co/200x200/C0392B/white?text=Gun" },
-    { name: "Puzzles", image: "https://placehold.co/200x200/8E44AD/white?text=Puzzles" },
-    { name: "Block Games", image: "https://placehold.co/200x200/2ECC71/white?text=Block+Games" },
-    { name: "Art & Craft", image: "https://placehold.co/200x200/F39C12/white?text=Art+%26+Craft" },
-    { name: "Board Games", image: "https://placehold.co/200x200/3357FF/white?text=Board+Games" },
-    { name: "Educational Toys", image: "https://placehold.co/200x200/28B463/white?text=Educational+Toys" },
-    { name: "Sports", image: "https://placehold.co/200x200/FF8F00/white?text=Sports" },
-    { name: "Activity Games", image: "https://placehold.co/200x200/1ABC9C/white?text=Activity+Games" },
-    { name: "Musical Toys", image: "https://placehold.co/200x200/D35400/white?text=Musical+Toys" },
-    { name: "Others", image: "https://placehold.co/200x200/7F8C8D/white?text=Others" },
-    { name: "Push & Pull Toys", image: "https://placehold.co/200x200/E91E63/white?text=Push+%26+Pull+Toys" },
-    { name: "Riders", image: "https://placehold.co/200x200/34495E/white?text=Riders" },
-    { name: "Electronic Toys", image: "https://placehold.co/200x200/9B59B6/white?text=Electronic+Toys" }
+// NOTE: I've added a dummy color hex code to each entry here, as the original
+// categories array used these to generate placeholder images.
+const categorySubData = [
+    {
+        "categoryName": "Push & Pull Toys",
+        "subs": [
+            "Ambulance",
+            "Animals",
+            "Auto Rikshaw",
+            "Bike",
+            "Boats & Ships",
+            "Bus",
+            "Cars",
+            "Fire Brigade",
+            "Friction Toys",
+            "Helicopter",
+            "Jeep",
+            "Plane",
+            "Pull Along Toys",
+            "Push & Go Toys",
+            "Tractor",
+            "Trains",
+            "Trucks & Dumpers"
+        ]
+    },
+    {
+        "categoryName": "Activity Games & Toys",
+        "subs": [
+            "Ball Pool",
+            "Bladders",
+            "Flying Disk",
+            "Hoopla Ring",
+            "Hopscotch",
+            "Magic Game",
+            "Other Activity Game",
+            "Play Gym",
+            "Play Tent House",
+            "Rings Toys",
+            "Ringtoss",
+            "Rolling Fun",
+            "Spinner",
+            "Target & Aim Games",
+            "Teddy Ring"
+        ]
+    },
+    {
+        "categoryName": "Musical Toys",
+        "subs": [
+            "Jhoomer",
+            "Musical Animals",
+            "Musical Drum",
+            "Musical Instrument Toys",
+            "Musical Vehicles",
+            "Rattles",
+            "Roly Poly",
+            "Xylophone"
+        ]
+    },
+    {
+        "categoryName": "Others",
+        "subs": [
+            "Activity Toys",
+            "Almirah",
+            "Baby Suitcase",
+            "Beauty Set",
+            "Cube",
+            "Cup Stackers",
+            "Doctor Set",
+            "Dolls",
+            "Kitchen Set",
+            "Pen Stand",
+            "Piggy Bank",
+            "Teether",
+            "Warrior Fighter Set"
+        ]
+    },
+    {
+        "categoryName": "Block Games",
+        "subs": [
+            "Activity Blocks",
+            "Building Blocks",
+            "Magnetic Blocks",
+            "Stick Blocks"
+        ]
+    },
+    {
+        "categoryName": "Sports",
+        "subs": [
+            "Basket Ball",
+            "Bow & Arrow",
+            "Bowling Games",
+            "Challenge Sports",
+            "Cricket Sets",
+            "Golf Set",
+            "Hockey",
+            "Table Tennis"
+        ]
+    },
+    {
+        "categoryName": "Puzzles",
+        "subs": [
+            "Animal & Bird",
+            "Educational",
+            "Fruit & Vegetable",
+            "Fun Puzzle Games",
+            "Story",
+            "Transport"
+        ]
+    },
+    {
+        "categoryName": "Educational Toys & Games",
+        "subs": [
+            "Abacus",
+            "Brainvita",
+            "Educational Numbers & Alphabets",
+            "Educational Shapes",
+            "Flash Cards",
+            "Magnetic Shapes & Colours",
+            "Mechanical Games",
+            "Memory Games",
+            "Preschool Toys",
+            "Science Games"
+        ]
+    },
+    {
+        "categoryName": "Art & Craft",
+        "subs": [
+            "Clay Toys",
+            "Jewellery Making Games",
+            "Others",
+            "Quilling Games",
+            "Scratching/ Colouring Games"
+        ]
+    },
+    {
+        "categoryName": "Board Games",
+        "subs": [
+            "Adventure Games",
+            "Business",
+            "Carrom",
+            "Chess",
+            "Chinese Checker",
+            "Combos",
+            "D-Dart",
+            "Educational Board",
+            "Housie",
+            "Ludo & Snakes",
+            "Monopoly",
+            "Tic Tac Toe",
+            "Wooden Board Games",
+            "Word Games"
+        ]
+    },
+    {
+        "categoryName": "Electronic Toys",
+        "subs": [
+            "Electronic Educational Toys",
+            "Electronic Gun",
+            "Electronic Musical Toys",
+            "Other Electronic Toys"
+        ]
+    },
+    {
+        "categoryName": "Riders",
+        "subs": [
+            "Ride On Cars",
+            "Rockers",
+            "Tricycle"
+        ]
+    },
+    {
+        "categoryName": "Gun",
+        "subs": [
+            "Air Pressure",
+            "Bullet",
+            "Musical"
+        ]
+    }
 ];
 
 // ---------------------------
-// Subcategory data
+// Derived data structures
 // ---------------------------
-const subCategoryData = [
-    { categoryName: "Vehicles", subs: ["Remote Control Cars", "Die-Cast Models", "Trains & Tracks", "Drones", "Trucks"] },
-    { categoryName: "Soft Toys", subs: ["Teddy Bears", "Animals", "Cartoon Characters", "Interactive Plush", "Dolls"] },
-    { categoryName: "Gun", subs: ["Bullet", "Air Pressure", "Musical"] },
-    { categoryName: "Puzzles", subs: ["Fruit & Vegetable", "Transport", "Animal & Bird", "Educational", "Magnetic", "Story", "Fun Puzzle Games"] },
-    { categoryName: "Block Games", subs: ["Activity Blocks", "Building Blocks", "Magnetic Blocks", "Stick Blocks", "Bullet Blocks"] },
-    { categoryName: "Art & Craft", subs: ["Jewellery Making Games", "Clay Toys", "Scratching/ Colouring Games", "Quilling Games", "Others"] },
-    { categoryName: "Board Games", subs: ["Educational Board", "Chess", "Ludo & Snakes", "Wooden Board Games", "Carrom", "Business", "Monopoly", "Sequence", "Word Games", "D-Dart", "Housie", "Chinese Checker", "Tic Tac Toe", "Adventure Games", "Combos"] },
-    { categoryName: "Educational Toys", subs: ["Mechanical Games", "Magnetic Shapes & Colours", "Globes", "Brainvita", "Flash Cards", "Abacus", "Educational Shapes", "Preschool Toys", "Memory Games", "Educational Numbers & Alphabets", "3D Books", "Science Games"] },
-    { categoryName: "Sports", subs: ["Basket Ball", "Cricket Sets", "Bowling Games", "Bow & Arrow", "Golf Set", "Table Tennis", "Hockey", "Challenge Sports"] },
-    { categoryName: "Activity Games", subs: ["Flying Disk", "Bladders", "Play Tent House", "Ringtoss", "Hoopla Ring", "Play Gym", "Spiral Fun", "Hopscotch", "Ball Pool", "Spinner", "Rolling Fun", "Teddy Ring", "Magic Game", "Cycle", "Other Activity Game", "Target & Aim Games", "Rings Toys"] },
-    { categoryName: "Musical Toys", subs: ["Rattles", "Roly Poly", "Musical Drum", "Xylophone", "Jhoomer", "Musical Animals", "Musical Vehicles", "Musical Instrument Toys", "Musical Teddy"] },
-    { categoryName: "Others", subs: ["Kitchen Set", "Dolls", "Piggy Bank", "Cup Stackers", "Cube", "Almirah", "Carry Cot", "Doctor Set", "Pen Stand", "Beauty Set", "Sofa", "Activity Toys", "Warrior Fighter Set", "Teether", "Baby Suitcase"] },
-    { categoryName: "Push & Pull Toys", subs: ["Cars", "Trucks & Dumpers", "Bike", "Boats & Ships", "Plane", "Pull Along Toys", "Push & Go Toys", "Animals", "Trains", "Cranes", "Bus", "Friction Toys", "Fire Brigade", "Auto Rikshaw", "Jeep", "Ambulance", "Helicopter", "Tractor"] },
-    { categoryName: "Riders", subs: ["Ride On Cars", "Tricycle", "Rockers"] },
-    { categoryName: "Electronic Toys", subs: ["Electronic Gun", "Electronic Educational Toys", "Electronic Musical Toys", "Electronic Activity Toys", "Other Electronic Toys"] }
-];
+const categories = categorySubData.map(item => ({
+    name: item.categoryName,
+    image: `https://placehold.co/200x200/${item.colorHex}/white?text=${encodeURIComponent(item.categoryName.replace(/ /g, '+'))}`
+}));
+
+const subCategoryData = categorySubData.map(item => ({
+    categoryName: item.categoryName,
+    subs: item.subs
+}));
 
 // ---------------------------
-// Master tables: AgeGroups, Colors, Genders, Materials
+// Master tables: AgeGroups, Colors, Genders, Materials (unchanged)
 // ---------------------------
 const ageGroups = [
     { name: "0-12 Months" },
@@ -102,24 +256,25 @@ async function seedMasters() {
 
     console.log('🌱 Seeding Master Tables...');
 
+    // Now uses the derived 'categories' array
     for (const cat of categories) {
         await db.Category.findOrCreate({ where: { name: cat.name }, defaults: { image: cat.image } });
     }
     console.log('✅ Categories seeded.');
 
-    for (const item of subCategoryData) {
+    for (const item of categorySubData) {
         const category = await db.Category.findOne({ where: { name: item.categoryName } });
         if (!category) {
-            console.log(` ⚠️ Skipped: Category '${item.categoryName}' not found.`);
+            console.log(` ⚠️ Skipped: Category '${item.categoryName}' not found. `);
             continue;
         }
 
-
-        const categorycolor = category.image.match(/200x200\/([^/]+)\//)?.[1] || 'CCCCCC';
+        // Use the hex code saved in the item structure to recreate the image logic
+        const categorycolor = item.colorHex || 'CCCCCC'; // Fallback to CCCCCC if no hex provided.
         for (const subName of item.subs) {
             await db.SubCategory.findOrCreate({
                 where: { name: subName, categoryId: category.id },
-                // Auto-generate subcategory image using category's color code
+                // Auto-generate subcategory image using the predefined hex code
                 defaults: { isActive: true, image: `https://placehold.co/200x200/${categorycolor}/white?text=${encodeURIComponent(subName)}` }
             });
         }

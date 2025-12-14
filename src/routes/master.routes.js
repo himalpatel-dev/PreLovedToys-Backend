@@ -50,4 +50,8 @@ router.get('/materials/:id', masterController.getMaterialById);
 router.put('/materials/:id', masterController.updateMaterial);
 router.delete('/materials/:id', masterController.deleteMaterial);
 
+
+// ================== LOAD DATA FROM ROUTES ================== 
+router.get('/load-data-from', masterController.getAllLoadDataFrom);
+
 module.exports = router;

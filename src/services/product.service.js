@@ -82,9 +82,12 @@ const getAllProducts = async (filters = {}) => {
                 { model: Category, as: 'category', attributes: ['name'] },
                 { model: SubCategory, as: 'subcategory', attributes: ['name'] },
                 { model: User, as: 'seller', attributes: ['name'] },
-                // ... (keep your other includes: AgeGroup, Color, etc.) ...
+                { model: AgeGroup, as: 'ageGroup', attributes: ['name'] },
+                { model: Color, as: 'color', attributes: ['name'] },
+                { model: Gender, as: 'gender', attributes: ['name'] },
+                { model: Material, as: 'material', attributes: ['name'] }
             ],
-            //order: [['createdAt', 'DESC']]
+            limit: 15
         });
         return products;
     } catch (error) {
@@ -151,7 +154,10 @@ const getAdminProducts = async () => {
                 { model: Category, as: 'category', attributes: ['name'] },
                 { model: SubCategory, as: 'subcategory', attributes: ['name'] },
                 { model: User, as: 'seller', attributes: ['id', 'name', 'mobile'] }, // Vital for Admin
-                // Include Masters if needed, but for list view usually not critical
+                { model: AgeGroup, as: 'ageGroup', attributes: ['name'] },
+                { model: Color, as: 'color', attributes: ['name'] },
+                { model: Gender, as: 'gender', attributes: ['name'] },
+                { model: Material, as: 'material', attributes: ['name'] }
             ],
             order: [['createdAt', 'DESC']]
         });
@@ -176,6 +182,28 @@ const getCompletedPointsSalesCount = async (userId) => {
     }
 };
 
+const getproductbysubcategory = async (subCategoryId) => {
+    try {
+        const products = await Product.findAll({
+            where: { subCategoryId },
+            include: [
+                { model: ProductImage, as: 'images', attributes: ['imageUrl', 'isPrimary'] },
+                { model: Category, as: 'category', attributes: ['name'] },
+                { model: SubCategory, as: 'subcategory', attributes: ['name'] },
+                { model: User, as: 'seller', attributes: ['id', 'name', 'mobile'] }, // Vital for Admin
+                { model: AgeGroup, as: 'ageGroup', attributes: ['name'] },
+                { model: Color, as: 'color', attributes: ['name'] },
+                { model: Gender, as: 'gender', attributes: ['name'] },
+                { model: Material, as: 'material', attributes: ['name'] }
+            ],
+            order: [['updatedAt', 'DESC']]
+        });
+        return products;
+    } catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     createProduct,
     getAllProducts,
@@ -184,5 +212,6 @@ module.exports = {
     getUserProducts,
     deleteProduct,
     getAdminProducts,
-    getCompletedPointsSalesCount
+    getCompletedPointsSalesCount,
+    getproductbysubcategory
 };

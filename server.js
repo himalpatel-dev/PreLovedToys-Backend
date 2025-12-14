@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 4000;
 
-db.sequelize.sync()
+db.sequelize.sync({ alter: true })
     .then(() => {
         console.log('✅ Database & Tables synced successfully.');
         app.listen(PORT, '0.0.0.0', () => {

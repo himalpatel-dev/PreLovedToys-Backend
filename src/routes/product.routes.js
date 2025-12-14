@@ -26,4 +26,6 @@ router.put('/:id/status', productController.updateStatus);
 // ADMIN ROUTES
 router.get('/admin/all', productController.getAllProductsAdmin);
 
+router.get('/sub-category/:subcategoryId', productController.getproductbysubcategory);
+
 module.exports = router;

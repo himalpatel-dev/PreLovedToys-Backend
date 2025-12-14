@@ -96,6 +96,16 @@ const getAllProductsAdmin = async (req, res) => {
     }
 };
 
+const getproductbysubcategory = async (req, res) => {
+    try {
+        const { subcategoryId } = req.params;
+        const products = await productService.getproductbysubcategory(subcategoryId);
+        res.status(200).json(products);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     addProduct,
     getProducts,
@@ -104,5 +114,6 @@ module.exports = {
     getMyListings,
     getPointsSalesCount,
     deleteListing,
-    getAllProductsAdmin
+    getAllProductsAdmin,
+    getproductbysubcategory
 };
