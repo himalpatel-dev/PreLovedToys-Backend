@@ -188,7 +188,7 @@ const categorySubData = [
 // ---------------------------
 const categories = categorySubData.map(item => ({
     name: item.categoryName,
-    image: `https://placehold.co/200x200/${item.colorHex}/white?text=${encodeURIComponent(item.categoryName.replace(/ /g, '+'))}`
+    image: `/assets/${item.categoryName}.png`
 }));
 
 const subCategoryData = categorySubData.map(item => ({
@@ -225,7 +225,6 @@ const colors = [
     { name: "Mustard Yellow", hexCode: "#FFDB58" },
     { name: "Multi-color", hexCode: "linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)" }
 ];
-
 
 const genders = [
     { name: "Boys" },

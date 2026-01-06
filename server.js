@@ -12,6 +12,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/assets', express.static(path.join(__dirname, 'src/assets')));
 
 // 1. IMPORT ROUTES
 const authRoutes = require('./src/routes/auth.routes');

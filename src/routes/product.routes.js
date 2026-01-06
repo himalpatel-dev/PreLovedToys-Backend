@@ -9,6 +9,7 @@ router.use(verifyToken); // Protect all routes
 router.post('/', productController.addProduct);
 router.get('/my-listings', productController.getMyListings); // <--- MOVE THIS HERE
 router.get('/sales-count/points', productController.getPointsSalesCount); // Get completed points-based sales count
+router.get('/other-listings', productController.getOtherUsersProducts); // Get products NOT sold by current user
 
 // 2. General "Get All" route
 router.get('/', productController.getProducts);

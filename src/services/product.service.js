@@ -1,4 +1,5 @@
 const db = require('../models');
+const { Op } = require('sequelize');
 const Product = db.Product;
 const ProductImage = db.ProductImage; // <-- Import
 const Category = db.Category;
@@ -87,6 +88,7 @@ const getAllProducts = async (filters = {}) => {
                 { model: Gender, as: 'gender', attributes: ['name'] },
                 { model: Material, as: 'material', attributes: ['name'] }
             ],
+            order: [['price', 'ASC']],
             limit: 15
         });
         return products;
@@ -204,6 +206,41 @@ const getproductbysubcategory = async (subCategoryId) => {
     }
 };
 
+const getOtherUsersProducts = async (userId, filters = {}) => {
+    try {
+        const whereClause = {
+            status: 'active',
+            userId: { [Op.ne]: userId }
+        };
+
+        if (filters.categoryId) {
+            whereClause.categoryId = filters.categoryId;
+        }
+        if (filters.subCategoryId) {
+            whereClause.subCategoryId = filters.subCategoryId;
+        }
+
+        const products = await Product.findAll({
+            where: whereClause,
+            include: [
+                { model: ProductImage, as: 'images', attributes: ['imageUrl', 'isPrimary'] },
+                { model: Category, as: 'category', attributes: ['name'] },
+                { model: SubCategory, as: 'subcategory', attributes: ['name'] },
+                { model: User, as: 'seller', attributes: ['name'] },
+                { model: AgeGroup, as: 'ageGroup', attributes: ['name'] },
+                { model: Color, as: 'color', attributes: ['name'] },
+                { model: Gender, as: 'gender', attributes: ['name'] },
+                { model: Material, as: 'material', attributes: ['name'] }
+            ],
+            order: [['updatedAt', 'DESC']],
+            limit: 15
+        });
+        return products;
+    } catch (error) {
+        throw error;
+    }
+};
+
 module.exports = {
     createProduct,
     getAllProducts,
@@ -213,5 +250,6 @@ module.exports = {
     deleteProduct,
     getAdminProducts,
     getCompletedPointsSalesCount,
-    getproductbysubcategory
+    getproductbysubcategory,
+    getOtherUsersProducts
 };
