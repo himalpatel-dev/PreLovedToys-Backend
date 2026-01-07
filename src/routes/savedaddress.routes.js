@@ -6,14 +6,14 @@ const verifyToken = require('../middlewares/auth.middleware');
 router.use(verifyToken); // Protect all routes
 
 // 1. Specific routes first
-router.get('/my-addresses', savedAddressController.getMyAddresses); // Get all user addresses
-router.get('/default', savedAddressController.getDefaultAddress); // Get default address
-router.post('/', savedAddressController.createAddress); // Create new address
+router.get('/my-addresses', /* #swagger.tags = ['SavedAddress'] */ savedAddressController.getMyAddresses); // Get all user addresses
+router.get('/default', /* #swagger.tags = ['SavedAddress'] */ savedAddressController.getDefaultAddress); // Get default address
+router.post('/', /* #swagger.tags = ['SavedAddress'] */ savedAddressController.createAddress); // Create new address
 
 // 2. Variable ID routes
-router.get('/:id', savedAddressController.getAddressById); // Get single address
-router.put('/:id', savedAddressController.updateAddress); // Update address
-router.delete('/:id', savedAddressController.deleteAddress); // Delete address
-router.put('/:id/set-default', savedAddressController.setDefaultAddress); // Set as default
+router.get('/:id', /* #swagger.tags = ['SavedAddress'] */ savedAddressController.getAddressById); // Get single address
+router.put('/:id', /* #swagger.tags = ['SavedAddress'] */ savedAddressController.updateAddress); // Update address
+router.delete('/:id', /* #swagger.tags = ['SavedAddress'] */ savedAddressController.deleteAddress); // Delete address
+router.put('/:id/set-default', /* #swagger.tags = ['SavedAddress'] */ savedAddressController.setDefaultAddress); // Set as default
 
 module.exports = router;

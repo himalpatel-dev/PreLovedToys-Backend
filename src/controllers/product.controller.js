@@ -14,11 +14,12 @@ const addProduct = async (req, res) => {
 
 const getProducts = async (req, res) => {
     try {
+        const userId = req.user.id;
         // Extract query params
         const { categoryId, subCategoryId } = req.query;
 
         // Pass them to the service
-        const products = await productService.getAllProducts({ categoryId, subCategoryId });
+        const products = await productService.getAllProducts(userId, { categoryId, subCategoryId });
 
         res.status(200).json(products);
     } catch (error) {
@@ -98,20 +99,20 @@ const getAllProductsAdmin = async (req, res) => {
 
 const getproductbysubcategory = async (req, res) => {
     try {
+        const userId = req.user.id;
         const { subcategoryId } = req.params;
-        const products = await productService.getproductbysubcategory(subcategoryId);
+        const products = await productService.getproductbysubcategory(subcategoryId, userId);
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
-const getOtherUsersProducts = async (req, res) => {
+const checkSellEligibility = async (req, res) => {
     try {
         const userId = req.user.id;
-        const { categoryId, subCategoryId } = req.query;
-        const products = await productService.getOtherUsersProducts(userId, { categoryId, subCategoryId });
-        res.status(200).json(products);
+        const eligibilityData = await productService.checkSellEligibility(userId);
+        res.status(200).json(eligibilityData);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -126,7 +127,6 @@ module.exports = {
     getPointsSalesCount,
     deleteListing,
     getAllProductsAdmin,
-
     getproductbysubcategory,
-    getOtherUsersProducts
+    checkSellEligibility
 };

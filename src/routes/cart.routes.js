@@ -7,12 +7,12 @@ const verifyToken = require('../middlewares/auth.middleware');
 router.use(verifyToken);
 
 // POST /api/cart (Add)
-router.post('/', cartController.addToCart);
+router.post('/', /* #swagger.tags = ['Cart'] */ cartController.addToCart);
 
 // GET /api/cart (View)
-router.get('/', cartController.getCart);
+router.get('/', /* #swagger.tags = ['Cart'] */ cartController.getCart);
 
 // DELETE /api/cart/:id (Remove specific item)
-router.delete('/:id', cartController.remove);
+router.delete('/:id', /* #swagger.tags = ['Cart'] */ cartController.remove);
 
 module.exports = router;

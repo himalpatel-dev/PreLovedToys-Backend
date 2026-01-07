@@ -340,18 +340,7 @@ const deleteMaterial = async (req, res) => {
     }
 };
 
-// ========================================== 
-// 6. LOAD DATA FROM CONTROLLERS
-// ========================================== 
 
-const getAllLoadDataFrom = async (req, res) => {
-    try {
-        const data = await masterService.getAllLoadDataFrom();
-        res.status(200).json(data);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
 
 module.exports = {
     // Category
@@ -366,6 +355,5 @@ module.exports = {
     createGender, getAllGenders, getGenderById, updateGender, deleteGender,
     // Material
     createMaterial, getAllMaterials, getMaterialById, updateMaterial, deleteMaterial,
-    // LoadDataFrom
-    getAllLoadDataFrom
+
 };

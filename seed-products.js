@@ -21111,6 +21111,201 @@ const rawProducts = [
         "gender": "Unisex",
         "ageGroup": "7-10 Years",
         "color": "Blue",
+    },
+    {
+        "category": "Others",
+        "title": "Saina Doll",
+        "price": 2600,
+        "gender": "Girls",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Dolls",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1704798332.jpeg"
+    },
+    {
+        "category": "Block Games",
+        "title": "1309 Blocks",
+        "price": 3000,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Activity Blocks",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1711743221.png"
+    },
+    {
+        "category": "Activity Games & Toys",
+        "title": "618 B Soccer Game",
+        "price": 2999,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Other Activity Game",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1743579621.jpg"
+    },
+    {
+        "category": "Board Games",
+        "title": "6 in 1 Wooden Easel Board Unicorn",
+        "price": 2899,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Wooden Board Games",
+        "material": "Woolen",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1716529681.png"
+    },
+    {
+        "category": "Block Games",
+        "title": "1000 Blocks",
+        "price": 2999,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Activity Blocks",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1716565739.png"
+    },
+    {
+        "category": "Activity Games & Toys",
+        "title": "3 in 1 Baby Gym",
+        "price": 2999,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Play Gym",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1753430962.jpg"
+    },
+    {
+        "category": "Activity Games & Toys",
+        "title": "Magnetix-4",
+        "price": 2999,
+        "gender": "Unisex",
+        "ageGroup": "3-7 Years",
+        "color": "",
+        "subcategory": "Other Activity Game",
+        "material": "Magnet",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1714631076.jpeg"
+    },
+    {
+        "category": "Educational Toys & Games",
+        "title": "Blix RC Explorers",
+        "price": 2999,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Mechanical Games",
+        "material": "Metal",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1720786805.png"
+    },
+    {
+        "category": "Block Games",
+        "title": "1224 Blocks",
+        "price": 3300,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Activity Blocks",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1704782326.jpg"
+    },
+    {
+        "category": "Block Games",
+        "title": "1201 Blocks",
+        "price": 3800,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Activity Blocks",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1704778002.jpg"
+    },
+    {
+        "category": "Riders",
+        "title": "MY FIRST PONY - RIDE ON",
+        "price": 3499,
+        "gender": "Unisex",
+        "ageGroup": "0-3 Years",
+        "color": "",
+        "subcategory": "Rockers",
+        "material": "Woolen",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1750939609.jpg"
+    },
+    {
+        "category": "Activity Games & Toys",
+        "title": "SPLASH N FUN WATER PLAY TABLE",
+        "price": 2499,
+        "gender": "Unisex",
+        "ageGroup": "3-7 Years",
+        "color": "",
+        "subcategory": "Other Activity Game",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1746787219.jpg"
+    },
+    {
+        "category": "Block Games",
+        "title": "1225 Blocks",
+        "price": 4275,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Activity Blocks",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1704782258.jpg"
+    },
+    {
+        "category": "Activity Games & Toys",
+        "title": "MY FIRST EASEL-3 LEG",
+        "price": 2999,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Other Activity Game",
+        "material": "Wooden",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1746787000.jpg"
+    },
+    {
+        "category": "Sports",
+        "title": "Big Air Hockey Table Top",
+        "price": 4499,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Hockey",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1711561991.png"
+    },
+    {
+        "category": "Push & Pull Toys",
+        "title": "Giggles Walk & Ride",
+        "price": 3999,
+        "gender": "Unisex",
+        "ageGroup": "0-3 Years",
+        "color": "",
+        "subcategory": "Pull Along Toys",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1756453767.jpg"
+    },
+    {
+        "category": "Educational Toys & Games",
+        "title": "Discover World",
+        "price": 5999,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "",
+        "subcategory": "Memory Games",
+        "material": "Plastic",
+        "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1725366955.png"
+    },
+    {
+        "category": "Electronic Toys",
+        "title": "Logic Blocks",
+        "price": 6599,
+        "gender": "Unisex",
+        "ageGroup": "7-10 Years",
+        "color": "Blue",
         "subcategory": "Electronic Educational Toys",
         "material": "Metal",
         "image": "https://khilionamartprod.s3.ap-south-1.amazonaws.com/product/1739249612.png"
@@ -21179,85 +21374,102 @@ async function seedProducts() {
             console.log('✅ Wallet created for Admin seller with 300 points');
         }
 
-        // 2️⃣ Ensure we have a demo USER seller
-        let userSeller = await db.User.findOne({
-            where: { mobile: '9727376727' }
-        });
+        // 2️⃣ Create Multiple Users for Seeding
+        const seedUsers = [
+            { mobile: '9727376727', name: 'Himal Patel' },
+            { mobile: '7041576707', name: 'Hml Ptl' },
+            { mobile: '9000000003', name: 'Charlie Seller' },
+            { mobile: '9000000004', name: 'Diana Seller' },
+            { mobile: '9000000005', name: 'Evan Seller' },
+            { mobile: '9000000006', name: 'Fiona Seller' },
+            { mobile: '9000000007', name: 'George Seller' },
+            { mobile: '9000000008', name: 'Hannah Seller' },
+            { mobile: '9000000009', name: 'Ian Seller' },
+            { mobile: '9000000010', name: 'Julia Seller' }
+        ];
 
-        if (!userSeller) {
-            console.log('Creating demo USER seller...');
-            userSeller = await db.User.create({
-                mobile: '9727376727',
-                role: 'user'
-            });
+        const createdUsers = [];
 
-            // Create wallet for user seller
-            await db.Wallet.create({
-                userId: userSeller.id,
-                balance: '300' // Initial welcome bonus
-            });
+        for (const u of seedUsers) {
+            let user = await db.User.findOne({ where: { mobile: u.mobile } });
+            if (!user) {
+                console.log(`Creating user ${u.name}...`);
+                user = await db.User.create({
+                    mobile: u.mobile,
+                    name: u.name,
+                    role: 'user'
+                });
 
-            // Create initial transaction record
-            await db.WalletTransaction.create({
-                walletId: userSeller.id,
-                type: 'credit',
-                amount: '300',
-                balanceAfter: '300',
-                description: 'Welcome bonus - Account creation',
-                refUserId: null
-            });
+                // Create wallet
+                await db.Wallet.create({
+                    userId: user.id,
+                    balance: '300'
+                });
 
-            console.log('✅ Wallet created for User seller with 300 points');
+                await db.WalletTransaction.create({
+                    walletId: user.id,
+                    type: 'credit',
+                    amount: '300',
+                    balanceAfter: '300',
+                    description: 'Welcome bonus',
+                    refUserId: null
+                });
+            }
+            createdUsers.push(user);
         }
 
-        for (const p of rawProducts) {
-            const colorName =
-                p.color && p.color.toString().trim()
-                    ? p.color.trim()
-                    : 'Multi-color';
+        // 3️⃣ Shuffle Products for Random Distribution
+        const shuffledProducts = rawProducts.sort(() => 0.5 - Math.random());
 
-            const cat = await db.Category.findOne({ where: { name: p.category } });
-            const sub = await db.SubCategory.findOne({ where: { name: p.subcategory } }); // ✅ FIXED
-            const age = await db.AgeGroup.findOne({ where: { name: p.ageGroup } });
-            const gen = await db.Gender.findOne({ where: { name: p.gender } });
-            const col = await db.Color.findOne({ where: { name: colorName } });
-            const mat = await db.Material.findOne({ where: { name: p.material } });
+        // 4️⃣ Distribute Products (Max 20 per user)
+        let productIdx = 0;
+        const PRODUCTS_PER_USER = 20;
 
-            // 3. Validate Data Found
-            if (cat && sub && age && gen && col && mat) {
+        for (const user of createdUsers) {
+            let userProductCount = 0;
+            console.log(`Seeding products for ${user.name}...`);
 
-                // 4. Create Product
-                const newProduct = await db.Product.create({
-                    title: p.title,
-                    description: 'Introducing Our New Product ' + p.title,
-                    price: p.price,
-                    condition: p.condition || 'Good',
-                    status: 'active',
-                    userId: userSeller.id,
+            while (userProductCount < PRODUCTS_PER_USER && productIdx < shuffledProducts.length) {
+                const p = shuffledProducts[productIdx];
+                productIdx++;
 
-                    categoryId: cat.id,
-                    subCategoryId: sub.id,
-                    ageGroupId: age.id,
-                    genderId: gen.id,
-                    colorId: col?.id || null,
-                    materialId: mat?.id || null
-                });
+                const colorName = p.color && p.color.toString().trim() ? p.color.trim() : 'Multi-color';
 
-                // 5. Add Image
-                await db.ProductImage.create({
-                    productId: newProduct.id,
-                    imageUrl: p.image,
-                    isPrimary: true
-                });
+                const cat = await db.Category.findOne({ where: { name: p.category } });
+                const sub = await db.SubCategory.findOne({ where: { name: p.subcategory } });
+                const age = await db.AgeGroup.findOne({ where: { name: p.ageGroup } });
+                const gen = await db.Gender.findOne({ where: { name: p.gender } });
+                const col = await db.Color.findOne({ where: { name: colorName } });
+                const mat = await db.Material.findOne({ where: { name: p.material } });
 
-            } else {
-                console.log(`❌ FAILED to add: ${p.title}`);
-                if (!cat) console.log(`   Missing Category: ${p.category}`);
-                if (!sub) console.log(`   Missing SubCategory: ${p.subCategory}`);
-                if (!age) console.log(`   Missing AgeGroup: ${p.ageGroup}`);
-                if (!gen) console.log(`   Missing Gender: ${p.gender}`);
-                if (!col) console.log(`   Missing Color: ${p.color}`);
-                if (!mat) console.log(`   Missing Material: ${p.material}`);
+                if (cat && sub && age && gen && col && mat) {
+                    const newProduct = await db.Product.create({
+                        title: p.title,
+                        description: 'Introducing Our New Product ' + p.title,
+                        price: p.price,
+                        condition: p.condition || 'Good',
+                        status: 'active',
+                        userId: user.id, // Assign to current user
+
+                        categoryId: cat.id,
+                        subCategoryId: sub.id,
+                        ageGroupId: age.id,
+                        genderId: gen.id,
+                        colorId: col?.id || null,
+                        materialId: mat?.id || null
+                    });
+
+                    await db.ProductImage.create({
+                        productId: newProduct.id,
+                        imageUrl: p.image,
+                        isPrimary: true
+                    });
+
+                    userProductCount++;
+                } else {
+                    // Log missing but don't count towards user limit
+                    // console.log(`Skipping ${p.title} due to missing master data.`);
+                }
             }
         }
 

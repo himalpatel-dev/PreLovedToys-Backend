@@ -6,6 +6,6 @@ const verifyToken = require('../middlewares/auth.middleware');
 router.use(verifyToken); // Protect all routes
 
 // GET /api/stats
-router.get('/', statsController.getDashboardStats);
+router.get('/', /* #swagger.tags = ['Stats'] */ statsController.getDashboardStats);
 
 module.exports = router;

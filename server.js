@@ -6,6 +6,10 @@ const path = require('path');
 const uploadRoutes = require('./src/routes/upload.routes');
 const app = express();
 
+// Swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+
 app.use(cors({
     origin: '*',   // or your exact domain
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -39,10 +43,9 @@ app.use('/api/wallet', walletRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/addresses', savedAddressRoutes);
 
-// Test Route
-app.get('/', (req, res) => {
-    res.json({ message: 'PreLovedToys API is running!' });
-});
+// Swagger Route
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 const PORT = process.env.PORT || 4000;
 

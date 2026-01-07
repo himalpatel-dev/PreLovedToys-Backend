@@ -4,7 +4,7 @@ const upload = require('../utils/file-upload');
 
 // POST /api/upload
 // 'image' is the key name the frontend must use
-router.post('/', upload.single('image'), (req, res) => {
+router.post('/', /* #swagger.tags = ['Upload'] */ upload.single('image'), (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({ message: "No file uploaded" });

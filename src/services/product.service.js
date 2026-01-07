@@ -64,10 +64,13 @@ const createProduct = async (data, userId) => {
 
 // 2. Get All Products (Updated to Include Master Data names)
 // Update the arguments to accept an object of filters
-const getAllProducts = async (filters = {}) => {
+const getAllProducts = async (userId, filters = {}) => {
     try {
         // Build the "Where" clause dynamically
-        const whereClause = { status: 'active' };
+        const whereClause = {
+            status: 'active',
+            userId: { [Op.ne]: userId } // Exclude current user's products
+        };
 
         if (filters.categoryId) {
             whereClause.categoryId = filters.categoryId;
@@ -184,10 +187,13 @@ const getCompletedPointsSalesCount = async (userId) => {
     }
 };
 
-const getproductbysubcategory = async (subCategoryId) => {
+const getproductbysubcategory = async (subCategoryId, userId) => {
     try {
         const products = await Product.findAll({
-            where: { subCategoryId },
+            where: {
+                subCategoryId,
+                userId: { [Op.ne]: userId } // Exclude current user's products
+            },
             include: [
                 { model: ProductImage, as: 'images', attributes: ['imageUrl', 'isPrimary'] },
                 { model: Category, as: 'category', attributes: ['name'] },
@@ -206,36 +212,20 @@ const getproductbysubcategory = async (subCategoryId) => {
     }
 };
 
-const getOtherUsersProducts = async (userId, filters = {}) => {
+const checkSellEligibility = async (userId) => {
     try {
-        const whereClause = {
-            status: 'active',
-            userId: { [Op.ne]: userId }
+        const count = await getCompletedPointsSalesCount(userId);
+        const canSellCash = count >= 3;
+
+        return {
+            canSellPoints: true,
+            canSellCash: canSellCash,
+            completedPointsSales: count,
+            remainingForCash: Math.max(0, 3 - count),
+            message: canSellCash
+                ? "You are eligible to sell for both Points and Cash."
+                : `You need to complete ${3 - count} more point-based sale(s) to unlock Cash selling.`
         };
-
-        if (filters.categoryId) {
-            whereClause.categoryId = filters.categoryId;
-        }
-        if (filters.subCategoryId) {
-            whereClause.subCategoryId = filters.subCategoryId;
-        }
-
-        const products = await Product.findAll({
-            where: whereClause,
-            include: [
-                { model: ProductImage, as: 'images', attributes: ['imageUrl', 'isPrimary'] },
-                { model: Category, as: 'category', attributes: ['name'] },
-                { model: SubCategory, as: 'subcategory', attributes: ['name'] },
-                { model: User, as: 'seller', attributes: ['name'] },
-                { model: AgeGroup, as: 'ageGroup', attributes: ['name'] },
-                { model: Color, as: 'color', attributes: ['name'] },
-                { model: Gender, as: 'gender', attributes: ['name'] },
-                { model: Material, as: 'material', attributes: ['name'] }
-            ],
-            order: [['updatedAt', 'DESC']],
-            limit: 15
-        });
-        return products;
     } catch (error) {
         throw error;
     }
@@ -251,5 +241,5 @@ module.exports = {
     getAdminProducts,
     getCompletedPointsSalesCount,
     getproductbysubcategory,
-    getOtherUsersProducts
+    checkSellEligibility
 };
